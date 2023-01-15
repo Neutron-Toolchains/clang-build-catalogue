@@ -1,0 +1,23 @@
+[date]
+16 January 2023
+
+[clang-ver]
+16.0.0
+
+[llvm-commit]
+https://github.com/llvm/llvm-project/commit/f8d9097168b73e3befd94ac4e16cbc5f944afcec
+
+[binutils-ver]
+2.39
+
+[binutils-commit]
+https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=9d131130d2f35f1515855d786a9905d8eb8cce8f
+
+[host-glibc]
+2.36
+
+[size]
+701M
+
+[shasum]
+1df9ad8d31dc5ec41de70e664e1a527b0ee9e0b4201ab5fc453ed702c8835acb
