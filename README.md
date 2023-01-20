@@ -4,7 +4,7 @@
 
 This is a [LLVM](https://llvm.org/) and [Clang](https://clang.llvm.org/) compiler toolchain that is built for kernel development. Builds are always made from the latest LLVM sources rather than stable releases, so complete stability cannot be guaranteed.
 
-This toolchain targets the AArch32 & AArch64 architectures. It is built with LTO, POLLY, PGO, BOLT and O3 optimizations to reduce compile times as much as possible. [Polly](https://polly.llvm.org/), LLVM's polyhedral loop optimizer, is also included for users who want to experiment with additional optimization. Note that this toolchain is **not** suitable for anything other than bare-metal development; it has not been built with support for any libc or userspace development in mind.
+This toolchain targets the AArch32, AArch64, and x86 architectures. It is built with LTO, POLLY, PGO, BOLT and O3 optimizations to reduce compile times as much as possible. [Polly](https://polly.llvm.org/), LLVM's polyhedral loop optimizer, is also included for users who want to experiment with additional optimization. Note that this toolchain is **not** suitable for anything other than bare-metal development; it has not been built with support for any libc or userspace development in mind.
 
 [binutils](https://www.gnu.org/software/binutils/) is also included for convenience. Neutron Clang uses binutils source from the [HEAD of the latest release branch](https://sourceware.org/git/?p=binutils-gdb.git;a=shortlog;h=refs/heads/binutils-2_39-branch), which allows us to have more upto date binutils compared to latest stable release as well as avoiding instability or breakage compared to bleeding edge binutils. This means that **users do not need to download separate GCC toolchains** to build the Linux kernel.
 
