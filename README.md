@@ -116,12 +116,14 @@ Note that these errors are harmless and don't necessarily need to be fixed, but 
 This is caused by a libcall optimization added in Clang 12 that optimizes certain basic `sprintf` calls into `stpcpy` calls. The correct fix for this is to cherry-pick ["lib/string.c: implement stpcpy"](https://github.com/kdrag0n/proton_zf6/commit/cec73f0775526), which adds a simple implementation of `stpcpy` to the kernel so that Clang can use it.
 
 ### `clang: /lib/x86_64-linux-gnu/libc.so.6: version GLIBC_2.36 not found (required by clang)`
+### `ld.lld: /lib/x86_64-linux-gnu/libstdc++.so.6: version GLIBCXX_3.4.32 not found (required by ld.lld)`
 
-This means that your linux distro is running old glibc libs. As Neutron clang is built on latest ArchLinux image, its linked against latest glibc libs. This breaks compatibility for users using older glibc.
+This means that your linux distro is either using old glibc or glibcxx libs. As Neutron clang is built on latest ArchLinux image, its linked against latest version of these libs. This breaks compatibility for users using older version of mentioned libs.
 
 Currently to fix this issue you can do two things:
+
 Either upgrade your glibc package if your distro is providing an update.
 
 OR
 
-Try using this workaround [script](https://gist.github.com/dakkshesh07/240736992abf0ea6f0ee1d8acb57a400) which once executed would download latest [glibc package from ArchLinux](https://archlinux.org/packages/core/x86_64/glibc) repo, put it under `$HOME/glibc` and and patch your clang binaries using `patchelf` to use the ArchLinux glibc libs rather relying on your host glibc libs.
+If you're linux distribution doesn't provide latest glibc or glibcxx libs then you can run `./antman --patch=glibc` in the dir where you have synced the toolchain, [AntMan](https://github.com/Neutron-Toolchains/antman.git) will download latest [glibc](https://archlinux.org/packages/core/x86_64/glibc) and [glibcxx](https://archlinux.org/packages/core/x86_64/gcc-libs/) libs from ArchLinux repo, put it under `$HOME/.neutron-tc` and then patches your toolchain binaries using `patchelf` to use the ArchLinux libs rather relying on your host libs.
