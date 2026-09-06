@@ -1,0 +1,17 @@
+[date]
+6 September 2026
+
+[clang-ver]
+24.0.0git
+
+[llvm-commit]
+https://github.com/llvm/llvm-project/commit/f42c87ba2c70219b1f4ad1f031a5b6a1ea6603fb
+
+[host-glibc]
+2.43
+
+[size]
+128M
+
+[shasum]
+531083928c8e37f6b31e324dbfd0b5a8323f989b1c57ff2c1368b889b5b1bd30
